@@ -51,8 +51,8 @@ func showList(){
 	fmt.Println("----------------------")
 	number := 0
 	for _, element := range tasks{
+		fmt.Printf("%d. %s", number, element)
 		number = number + 1
-		fmt.Printf("%d  %s", number, element)
 	} 
 	fmt.Println()
 	fmt.Println("----------------------")
@@ -69,5 +69,15 @@ func addItem(){
 }
 
 func removeItem(){
+	fmt.Println("Remove Item")
+	fmt.Println("----------------------")
+	var index int
+	fmt.Scan(&index)
+	if index < 0 || index >= len(tasks) {
+		fmt.Println("Wrong Index !!!")
+	}else{
+		tasks = append(tasks[:index], tasks[index+1:]...)
+	}
+	fmt.Println("----------------------")
 
 }
